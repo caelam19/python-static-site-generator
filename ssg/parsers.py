@@ -11,8 +11,7 @@ class Parser:
     extensions: List[str] = []
 
     def valid_extension(self, extension):
-        if extension in self.extensions:
-            return True
+        return extension in self.extensions
 
     def parse(self, path: Path,source: Path,dest: Path):
         raise NotImplementedError
