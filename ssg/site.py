@@ -28,7 +28,7 @@ class Site:
 
     def run_parser(self, path):
         parser = self.load_parser(path.suffix)
-        if parse is not None:
+        if parser is not None:
             parser.parser(path, self.source, self.dest)
         else:
             self.error("No parser for the {} extension, file skipped!".format(path.suffix))
