@@ -7,6 +7,7 @@ class Site:
         self.source = Path(source)
         self.dest = Path(dest)
         self.parsers = parsers or []
+        
 
     def create_dir(self, path):
         directory = self.dest / path.relative_to(self.source)
@@ -28,7 +29,7 @@ class Site:
     def run_parser(self, path):
         parser = self.load_parser(path.suffix)
         if parse is not None:
-            parse.parse(path, self.source, self.dest)
+            parser.parser(path, self.source, self.dest)
         else:
             self.error("No parser for the {} extension, file skipped!".format(path.suffix))
 
